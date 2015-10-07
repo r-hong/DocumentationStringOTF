@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>maxLikeBoot</title>
+  <title>clusterCDF</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -34,7 +34,7 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        Module&nbsp;maxLikeBoot
+        Module&nbsp;clusterCDF
       </span>
     </td>
     <td>
@@ -44,33 +44,44 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="maxLikeBoot-module.html"
+            >]&nbsp;|&nbsp;<a href="clusterCDF-module.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module maxLikeBoot</h1><p class="nomargin-top"><span class="codelink"><a href="maxLikeBoot-pysrc.html">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Module clusterCDF</h1><p class="nomargin-top"><span class="codelink"><a href="clusterCDF-pysrc.html">source&nbsp;code</a></span></p>
 <pre class="literalblock">
 
-Finds the maximum likelihood estimator of each column in a file. This version processes automatically files with any number of columns and the estimator is calculated using a bootstrap procedure. 
-usage: (imported) [-h] fileName N K S
+usage: (imported) [-h] [-CVi CV2PLOT] [-plotdata VAL] IN_file K Niter
 
-Finds the maximum likelihood estimator of each column in a file. This version
-processes automatically files with any number of columns and the estimator is
-calculated using a bootstrap procedure.
+This tool estimates and plots the positions of the K clusters centers in the
+data. The cumulative distributions functions for the values associated to each
+cluster are also calculated to determine the temporal order of the clusters
+(this assumes that the indices of the values for the data points or colective
+variables corrispond to time as it is for instance implicit when we collect
+colective variable values in time during a molecular dynamics simulation.
+Resuming, from this calculation we obtain the reordering of the clusters in a
+sequence that should be follow for the calculation of principal curves between
+pairs of cluster. In this tool we first evolve an initial guess formed by K
+points to find the K center of the clusters. At each new iteration, the new
+points are estimated as the mean value of the DIM-dimensional voronoi cells,
+after this, cumulative distribution functions are calculated and ploted.
 
 positional arguments:
-  fileName    Input file
-  N           Size of the resampled vector (on each column).
-  K           Number of times the resampling of size N will take place.
-  S           Stride. Use only every Nth value from the input file.
+  IN_file        Input file
+  K              Number of clusters.
+  Niter          Number of iterations updating the strings.
 
 optional arguments:
-  -h, --help  show this help message and exit
+  -h, --help     show this help message and exit
+  -CVi CV2PLOT   Indexes between [0, (DIM-1)] of the CVs to be visualized (2D
+                 and 3D options are possible).
+  -plotdata VAL  Default is 'yes'. If the value 'no' is specified then the
+                 intermediate plots will be produced with the curves only.
 
-Thanks for using maxLikeBoot.py!!
+Thanks for using clustersCDF.py!!
 
 </pre>
 
@@ -99,7 +110,7 @@ Thanks for using maxLikeBoot.py!!
         <tr>
           <td><span class="summary-sig"><a name="_make_parser"></a><span class="summary-sig-name">_make_parser</span>()</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="maxLikeBoot-pysrc.html#_make_parser">source&nbsp;code</a></span>
+            <span class="codelink"><a href="clusterCDF-pysrc.html#_make_parser">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -129,12 +140,15 @@ Thanks for using maxLikeBoot.py!!
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="maxLikeBoot-module.html#_p" class="summary-name" onclick="show_private();">_p</a> = <code title="ArgumentParser(prog='(imported)', usage=None, description='Finds the m\
-aximum likelihood estimator of each column in a file. This version pro\
-cesses automatically files with any number of columns and the estimato\
-r is calculated using a bootstrap procedure.', version=None, formatter\
-_class=&lt;class 'argparse.HelpFormatter'&gt;, conflict_handler='error', add\
-_help=True)">ArgumentParser(prog='(imported)', usage=None, description<code class="variable-ellipsis">...</code></code>
+        <a href="clusterCDF-module.html#_p" class="summary-name" onclick="show_private();">_p</a> = <code title="ArgumentParser(prog='(imported)', usage=None, description='This tool e\
+stimates and plots the positions of the K clusters centers in the data\
+. The cumulative distributions functions for the values associated to \
+each cluster are also calculated to determine the temporal order of th\
+e clusters (this assumes that the indices of the values for the data p\
+oints or colective variables corrispond to time as it is for instance \
+implicit when we collect colective variable values in time during a mo\
+lecular dynamics simulation. Resuming, from this calculation we obtain\
+...">ArgumentParser(prog='(imported)', usage=None, description<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -175,12 +189,15 @@ _help=True)">ArgumentParser(prog='(imported)', usage=None, description<code clas
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-ArgumentParser(prog='(imported)', usage=None, description='Finds the m<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-aximum likelihood estimator of each column in a file. This version pro<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-cesses automatically files with any number of columns and the estimato<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-r is calculated using a bootstrap procedure.', version=None, formatter<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-_class=&lt;class 'argparse.HelpFormatter'&gt;, conflict_handler='error', add<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-_help=True)
+ArgumentParser(prog='(imported)', usage=None, description='This tool e<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+stimates and plots the positions of the K clusters centers in the data<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+. The cumulative distributions functions for the values associated to <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+each cluster are also calculated to determine the temporal order of th<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e clusters (this assumes that the indices of the values for the data p<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+oints or colective variables corrispond to time as it is for instance <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+implicit when we collect colective variable values in time during a mo<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+lecular dynamics simulation. Resuming, from this calculation we obtain<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
   </dl>
