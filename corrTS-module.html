@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>convergence</title>
+  <title>corrTS</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -34,7 +34,7 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        Module&nbsp;convergence
+        Module&nbsp;corrTS
       </span>
     </td>
     <td>
@@ -44,32 +44,29 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="convergence-module.html"
+            >]&nbsp;|&nbsp;<a href="corrTS-module.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module convergence</h1><p class="nomargin-top"><span class="codelink"><a href="convergence-pysrc.html">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Module corrTS</h1><p class="nomargin-top"><span class="codelink"><a href="corrTS-pysrc.html">source&nbsp;code</a></span></p>
 <pre class="literalblock">
 
-Tool to estimate the convergence of the string method for the calculation of the minimum free energy path. 
-The calculation is based of the succesive differences between &quot;strings&quot; in the space of the normalized CVs. 
-In the input files: 
-(1) each column represents a CV, 
-(2) each row represents a point along the path (string), and 
-(3) the columns should be separated by a space character.
+usage: (imported) [-h] IN_file
 
-usage: (imported) [-h] Niter IN_file
+This tool explores the correlations between time series. The input file should
+contain a time series on each column. Initially the data is loaded in a panda
+dataframe and later the correlation matrix is calculated and visualized.
 
 positional arguments:
-  Niter       number of iterations files updating the strings
-  IN_file     Prefix of the files containing the string iterations. Example:
-              if you have the files file1 file2, etc., then IN_file='file'
+  IN_file     Input file
 
 optional arguments:
   -h, --help  show this help message and exit
+
+Thanks for using corrTS.py!!
 
 </pre>
 
@@ -98,7 +95,7 @@ optional arguments:
         <tr>
           <td><span class="summary-sig"><a name="_make_parser"></a><span class="summary-sig-name">_make_parser</span>()</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="convergence-pysrc.html#_make_parser">source&nbsp;code</a></span>
+            <span class="codelink"><a href="corrTS-pysrc.html#_make_parser">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -128,9 +125,12 @@ optional arguments:
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="convergence-module.html#_p" class="summary-name" onclick="show_private();">_p</a> = <code title="ArgumentParser(prog='(imported)', usage=None, description=None, versio\
-n=None, formatter_class=&lt;class 'argparse.HelpFormatter'&gt;, conflict_han\
-dler='error', add_help=True)">ArgumentParser(prog='(imported)', usage=None, description<code class="variable-ellipsis">...</code></code>
+        <a href="corrTS-module.html#_p" class="summary-name" onclick="show_private();">_p</a> = <code title="ArgumentParser(prog='(imported)', usage=None, description='This tool e\
+xplores the correlations between time series. The input file should co\
+ntain a time series on each column. Initially the data is loaded in a \
+panda dataframe and later the correlation matrix is calculated and vis\
+ualized.', version=None, formatter_class=&lt;class 'argparse.HelpFormatte\
+r'&gt;, conflict_handler='error', add_help=True)">ArgumentParser(prog='(imported)', usage=None, description<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr>
@@ -171,9 +171,12 @@ dler='error', add_help=True)">ArgumentParser(prog='(imported)', usage=None, desc
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-ArgumentParser(prog='(imported)', usage=None, description=None, versio<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-n=None, formatter_class=&lt;class 'argparse.HelpFormatter'&gt;, conflict_han<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-dler='error', add_help=True)
+ArgumentParser(prog='(imported)', usage=None, description='This tool e<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+xplores the correlations between time series. The input file should co<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ntain a time series on each column. Initially the data is loaded in a <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+panda dataframe and later the correlation matrix is calculated and vis<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ualized.', version=None, formatter_class=&lt;class 'argparse.HelpFormatte<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+r'&gt;, conflict_handler='error', add_help=True)
 </pre></td></tr></table>
 </dd>
   </dl>
