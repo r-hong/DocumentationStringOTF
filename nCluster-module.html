@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>pointDensity3D</title>
+  <title>nCluster</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -34,7 +34,7 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        Module&nbsp;pointDensity3D
+        Module&nbsp;nCluster
       </span>
     </td>
     <td>
@@ -44,39 +44,42 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="pointDensity3D-module.html"
+            >]&nbsp;|&nbsp;<a href="nCluster-module.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module pointDensity3D</h1><p class="nomargin-top"><span class="codelink"><a href="pointDensity3D-pysrc.html">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Module nCluster</h1><p class="nomargin-top"><span class="codelink"><a href="nCluster-pysrc.html">source&nbsp;code</a></span></p>
 <pre class="literalblock">
 
-usage: (imported) [-h] file1 file2 file3 choice
+usage: (imported) [-h] [-CV CV2PLOT] [-plotdata VAL] INPUT maxC Niter
 
-Estimates the density of points on the principal curve in the collective
-variable space (only 3D case, e.g., coordinates of the center of mass). As the
-data to estimate the density on the curve is necesarily discrete, here we
-extrapolate the density pattern from larger distances until reaching the
-points on the principal curve. Shortly, we use an equation like ln(d) =
-ln(C)+ln(e(-lr)) = ln(C)-lr, where d=density, r=radius, l=decay constant. We
-estimate the slope of the model and extrapolate for the case in which the
-distance to the curve is zero, that is, the density 'on the curve'. The
-procedure is repeated for each point of the principal curve to render a
-density profile that is both, plotted and saved.
+Calculates the optimal number of clusters in a dataset formed by a group of
+'M' collective variables (columns in the input file) measured 'N' times (rows
+in the input file). The procedure evolves an initial guess formed by K cluster
+centers. At each new iteration, the new centers are estimated as the mean
+value of the M-dimensional voronoi cells (k-means method). Next we calculate
+the 'distortion' of the K cluster partition (dKi). We repeat the same
+procedure for a range of cluster partitions Ki (2 &lt; Ki &lt; maxC). The highest
+'jump' in the cluster partitions (Jk_i = dK_i**(-M/2) - dK_(i-1)**(-M/2))
+represents the optimal partition and therefore the correct number of clusters
+in the data set.
 
 positional arguments:
-  file1       Input pcurve_state file.
-  file2       Original CV file.
-  file3       Output file.
-  choice      Use Min or Mout? choice '0' for Min and '1' for Mout.
+  INPUT          Input file
+  maxC           Maximal mumber of clusters (2 &lt; Ki &lt; maxC).
+  Niter          Number of iterations updating the strings.
 
 optional arguments:
-  -h, --help  show this help message and exit
+  -h, --help     show this help message and exit
+  -CV CV2PLOT    Indexes between [0, (DIM-1)] of the CVs to be visualized (2D
+                 and 3D options are possible).
+  -plotdata VAL  Default is 'yes'. If the value 'no' is specified then the
+                 intermediate plots will be produced with the curves only.
 
-Thanks for using pointDensity3D.py!!
+Thanks for using nCluster.py!!
 
 </pre>
 
@@ -105,7 +108,7 @@ Thanks for using pointDensity3D.py!!
         <tr>
           <td><span class="summary-sig"><a name="_make_parser"></a><span class="summary-sig-name">_make_parser</span>()</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="pointDensity3D-pysrc.html#_make_parser">source&nbsp;code</a></span>
+            <span class="codelink"><a href="nCluster-pysrc.html#_make_parser">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -135,14 +138,14 @@ Thanks for using pointDensity3D.py!!
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pointDensity3D-module.html#_p" class="summary-name" onclick="show_private();">_p</a> = <code title="ArgumentParser(prog='(imported)', usage=None, description=&quot;Estimates t\
-he density of points on the principal curve in the collective variable\
- space (only 3D case, e.g., coordinates of the center of mass). As the\
- data to estimate the density on the curve is necesarily discrete, her\
-e we extrapolate the density pattern from larger distances until reach\
-ing the points on the principal curve. Shortly, we use an equation lik\
-e ln(d) = ln(C)+ln(e(-lr)) = ln(C)-lr, where d=density, r=radius, l=de\
-cay constant. We estimate the slope of the model and extrapolate for t\
+        <a href="nCluster-module.html#_p" class="summary-name" onclick="show_private();">_p</a> = <code title="ArgumentParser(prog='(imported)', usage=None, description=&quot;Calculates \
+the optimal number of clusters in a dataset formed by a group of 'M' c\
+ollective variables (columns in the input file) measured 'N' times (ro\
+ws in the input file). The procedure evolves an initial guess formed b\
+y K cluster centers. At each new iteration, the new centers are estima\
+ted as the mean value of the M-dimensional voronoi cells (k-means meth\
+od). Next we calculate the 'distortion' of the K cluster partition (dK\
+i). We repeat the same procedure for a range of cluster partitions Ki \
 ...">ArgumentParser(prog='(imported)', usage=None, description<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
@@ -184,14 +187,14 @@ cay constant. We estimate the slope of the model and extrapolate for t\
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-ArgumentParser(prog='(imported)', usage=None, description=&quot;Estimates t<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-he density of points on the principal curve in the collective variable<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- space (only 3D case, e.g., coordinates of the center of mass). As the<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- data to estimate the density on the curve is necesarily discrete, her<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-e we extrapolate the density pattern from larger distances until reach<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ing the points on the principal curve. Shortly, we use an equation lik<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-e ln(d) = ln(C)+ln(e(-lr)) = ln(C)-lr, where d=density, r=radius, l=de<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-cay constant. We estimate the slope of the model and extrapolate for t<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ArgumentParser(prog='(imported)', usage=None, description=&quot;Calculates <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+the optimal number of clusters in a dataset formed by a group of 'M' c<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ollective variables (columns in the input file) measured 'N' times (ro<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ws in the input file). The procedure evolves an initial guess formed b<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+y K cluster centers. At each new iteration, the new centers are estima<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ted as the mean value of the M-dimensional voronoi cells (k-means meth<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+od). Next we calculate the 'distortion' of the K cluster partition (dK<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+i). We repeat the same procedure for a range of cluster partitions Ki <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>

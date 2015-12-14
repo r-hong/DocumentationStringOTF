@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>pointDensity3D</title>
+  <title>map2pcurve</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -34,7 +34,7 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        Module&nbsp;pointDensity3D
+        Module&nbsp;map2pcurve
       </span>
     </td>
     <td>
@@ -44,39 +44,37 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="pointDensity3D-module.html"
+            >]&nbsp;|&nbsp;<a href="map2pcurve-module.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module pointDensity3D</h1><p class="nomargin-top"><span class="codelink"><a href="pointDensity3D-pysrc.html">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Module map2pcurve</h1><p class="nomargin-top"><span class="codelink"><a href="map2pcurve-pysrc.html">source&nbsp;code</a></span></p>
 <pre class="literalblock">
 
-usage: (imported) [-h] file1 file2 file3 choice
+usage: (imported) [-h] pcurveFile cvFile iniCV endCV
 
-Estimates the density of points on the principal curve in the collective
-variable space (only 3D case, e.g., coordinates of the center of mass). As the
-data to estimate the density on the curve is necesarily discrete, here we
-extrapolate the density pattern from larger distances until reaching the
-points on the principal curve. Shortly, we use an equation like ln(d) =
-ln(C)+ln(e(-lr)) = ln(C)-lr, where d=density, r=radius, l=decay constant. We
-estimate the slope of the model and extrapolate for the case in which the
-distance to the curve is zero, that is, the density 'on the curve'. The
-procedure is repeated for each point of the principal curve to render a
-density profile that is both, plotted and saved.
+This tool maps collective variables (CVs) from an input file on a principal
+curve. Each CV in the data file should be place in a column. The rows in the
+CV data file should coincide in time with the CVs used to estimate the
+pricipal curve (as a particular case, the same CV data file can be used with
+both pcurve.py and map2pcurve.py). The initial and final indexes of the CVs to
+be mapped should be provided. The information of the principal curve is
+automatically loaded from the file 'pcurve_state.dat' (output from 'pcurve.py'
+). To extract CVs from MD trajectories using VMD see the file getFromDCD.tcl.
 
 positional arguments:
-  file1       Input pcurve_state file.
-  file2       Original CV file.
-  file3       Output file.
-  choice      Use Min or Mout? choice '0' for Min and '1' for Mout.
+  pcurveFile  Input file with the data from a calculated principal curve.
+  cvFile      Input file with CVs.
+  iniCV       Index (column) of the first CV to be mapped.
+  endCV       Index (column) of the last CV to be mapped.
 
 optional arguments:
   -h, --help  show this help message and exit
 
-Thanks for using pointDensity3D.py!!
+Thanks for using map2pcurve.py!!
 
 </pre>
 
@@ -105,7 +103,7 @@ Thanks for using pointDensity3D.py!!
         <tr>
           <td><span class="summary-sig"><a name="_make_parser"></a><span class="summary-sig-name">_make_parser</span>()</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="pointDensity3D-pysrc.html#_make_parser">source&nbsp;code</a></span>
+            <span class="codelink"><a href="map2pcurve-pysrc.html#_make_parser">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -135,14 +133,14 @@ Thanks for using pointDensity3D.py!!
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pointDensity3D-module.html#_p" class="summary-name" onclick="show_private();">_p</a> = <code title="ArgumentParser(prog='(imported)', usage=None, description=&quot;Estimates t\
-he density of points on the principal curve in the collective variable\
- space (only 3D case, e.g., coordinates of the center of mass). As the\
- data to estimate the density on the curve is necesarily discrete, her\
-e we extrapolate the density pattern from larger distances until reach\
-ing the points on the principal curve. Shortly, we use an equation lik\
-e ln(d) = ln(C)+ln(e(-lr)) = ln(C)-lr, where d=density, r=radius, l=de\
-cay constant. We estimate the slope of the model and extrapolate for t\
+        <a href="map2pcurve-module.html#_p" class="summary-name" onclick="show_private();">_p</a> = <code title="ArgumentParser(prog='(imported)', usage=None, description=&quot;This tool m\
+aps collective variables (CVs) from an input file on a principal curve\
+. Each CV in the data file should be place in a column. The rows in th\
+e CV data file should coincide in time with the CVs used to estimate t\
+he pricipal curve (as a particular case, the same CV data file can be \
+used with both pcurve.py and map2pcurve.py). The initial and final ind\
+exes of the CVs to be mapped should be provided. The information of th\
+e principal curve is automatically loaded from the file 'pcurve_state.\
 ...">ArgumentParser(prog='(imported)', usage=None, description<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
@@ -184,14 +182,14 @@ cay constant. We estimate the slope of the model and extrapolate for t\
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-ArgumentParser(prog='(imported)', usage=None, description=&quot;Estimates t<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-he density of points on the principal curve in the collective variable<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- space (only 3D case, e.g., coordinates of the center of mass). As the<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- data to estimate the density on the curve is necesarily discrete, her<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-e we extrapolate the density pattern from larger distances until reach<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ing the points on the principal curve. Shortly, we use an equation lik<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-e ln(d) = ln(C)+ln(e(-lr)) = ln(C)-lr, where d=density, r=radius, l=de<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-cay constant. We estimate the slope of the model and extrapolate for t<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ArgumentParser(prog='(imported)', usage=None, description=&quot;This tool m<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+aps collective variables (CVs) from an input file on a principal curve<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+. Each CV in the data file should be place in a column. The rows in th<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e CV data file should coincide in time with the CVs used to estimate t<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+he pricipal curve (as a particular case, the same CV data file can be <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+used with both pcurve.py and map2pcurve.py). The initial and final ind<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+exes of the CVs to be mapped should be provided. The information of th<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e principal curve is automatically loaded from the file 'pcurve_state.<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
