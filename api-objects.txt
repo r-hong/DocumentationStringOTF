@@ -14,6 +14,7 @@ clusterCDF.loadrmsd	functions-module.html#loadrmsd
 clusterCDF.readFile	functions-module.html#readFile
 clusterCDF.rotation_translation_3D	functions-module.html#rotation_translation_3D
 clusterCDF.savepcurve	functions-module.html#savepcurve
+clusterCDF.dataGenerator	functions-module.html#dataGenerator
 clusterCDF.__package__	clusterCDF-module.html#__package__
 clusterCDF.diffstring	functions-module.html#diffstring
 clusterCDF.string_centers	functions-module.html#string_centers
@@ -61,6 +62,7 @@ convergence.loadrmsd	functions-module.html#loadrmsd
 convergence.readFile	functions-module.html#readFile
 convergence.rotation_translation_3D	functions-module.html#rotation_translation_3D
 convergence.savepcurve	functions-module.html#savepcurve
+convergence.dataGenerator	functions-module.html#dataGenerator
 convergence.__package__	convergence-module.html#__package__
 convergence.diffstring	functions-module.html#diffstring
 convergence.string_centers	functions-module.html#string_centers
@@ -134,6 +136,7 @@ functions.loadrmsd	functions-module.html#loadrmsd
 functions.readFile	functions-module.html#readFile
 functions.rotation_translation_3D	functions-module.html#rotation_translation_3D
 functions.savepcurve	functions-module.html#savepcurve
+functions.dataGenerator	functions-module.html#dataGenerator
 functions.diffstring	functions-module.html#diffstring
 functions.string_centers	functions-module.html#string_centers
 functions.getVec	functions-module.html#getVec
@@ -211,6 +214,7 @@ trimerKDE.loadrmsd	functions-module.html#loadrmsd
 trimerKDE.readFile	functions-module.html#readFile
 trimerKDE.rotation_translation_3D	functions-module.html#rotation_translation_3D
 trimerKDE.savepcurve	functions-module.html#savepcurve
+trimerKDE.dataGenerator	functions-module.html#dataGenerator
 trimerKDE.__package__	trimerKDE-module.html#__package__
 trimerKDE.diffstring	functions-module.html#diffstring
 trimerKDE.string_centers	functions-module.html#string_centers
